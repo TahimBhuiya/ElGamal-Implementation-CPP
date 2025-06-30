@@ -8,3 +8,8 @@
 #include <string>
 #include <tuple>
 using namespace std;
+
+// Greatest Common Divisor
+int gcd(int a, int b) {
+    return b == 0 ? a : gcd(b, a % b);
+}

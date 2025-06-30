@@ -1,0 +1,10 @@
+// Tahim Bhuiya
+// ElGamal Implementation in C++ 
+#include <iostream>
+#include <vector>
+#include <cmath>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+#include <tuple>
+using namespace std;

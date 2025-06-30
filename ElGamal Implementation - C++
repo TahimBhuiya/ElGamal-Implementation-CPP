@@ -32,3 +32,13 @@ bool is_prime(int p) {
     if (p < 2 || p % 2 == 0) return false;
     return power(2, p - 1, p) == 1;
 }
+
+int generate_prime(int bits) {
+    int min_val = 1 << (bits - 1);
+    int max_val = (1 << bits) - 1;
+    int p;
+    do {
+        p = min_val + rand() % (max_val - min_val);
+    } while (!is_prime(p));
+    return p;
+}

@@ -42,3 +42,12 @@ int generate_prime(int bits) {
     } while (!is_prime(p));
     return p;
 }
+
+// Generator for a Prime Field
+int find_generator(int p) {
+    for (int g = 2; g < p; ++g) {
+        if (power(g, (p - 1) / 2, p) != 1 && power(g, (p - 1) / 3, p) != 1)
+            return g;
+    }
+    return -1;
+}

@@ -51,3 +51,13 @@ int find_generator(int p) {
     }
     return -1;
 }
+
+// Key Generation
+tuple<int, int, int, int> generate_keys(int bits) {
+    int q = generate_prime(bits);
+    int g = find_generator(q);
+    int min_key = 1 << (bits / 2);
+    int private_key = min_key + rand() % (q - min_key);
+    int public_key = power(g, private_key, q);
+    return {q, g, private_key, public_key};
+}

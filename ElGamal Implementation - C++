@@ -26,3 +26,9 @@ int power(int a, int b, int c) {
     }
     return result;
 }
+
+// Fermat Primality Test
+bool is_prime(int p) {
+    if (p < 2 || p % 2 == 0) return false;
+    return power(2, p - 1, p) == 1;
+}

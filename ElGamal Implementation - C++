@@ -20,18 +20,28 @@ int gcd(int a, int b) {
 }
 
 
-// Modular Exponentiation (Square-and-Multiply)
+// Modular Exponentiation using the Square-and-Multiply method
+// Computes (a^b) mod c efficiently without overflow
+// a: base, b: exponent, c: modulus
 int power(int a, int b, int c) {
     int result = 1;
-    a = a % c;
+    a = a % c;  // Ensure base is within modulus
+
     while (b > 0) {
+        // If b is odd, multiply result with current base
         if (b % 2 == 1)
             result = (result * a) % c;
+
+        // Square the base and reduce it modulo c
         a = (a * a) % c;
+
+        // Divide exponent by 2
         b /= 2;
     }
+
     return result;
 }
+
 
 // Fermat Primality Test
 bool is_prime(int p) {

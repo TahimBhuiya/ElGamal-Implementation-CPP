@@ -98,3 +98,18 @@ string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key)
     }
     return plaintext;
 }
+
+int main() {
+    srand(time(0));
+    int bits;
+    cout << "Enter the key size in bits (preferably 8, 12, 16): ";
+    while (!(cin >> bits) || bits <= 0) {
+        cout << "Please enter a valid positive integer: ";
+        cin.clear();
+        cin.ignore(1000, '\n');
+    }
+
+    auto [q, g, private_key, public_key] = generate_keys(bits);
+    cout << "\nPrime Number (q): " << q;
+    cout << "\nPublic Key: " << public_key;
+    cout << "\nPrivate Key: " << private_key;

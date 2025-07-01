@@ -113,3 +113,18 @@ int main() {
     cout << "\nPrime Number (q): " << q;
     cout << "\nPublic Key: " << public_key;
     cout << "\nPrivate Key: " << private_key;
+    cin.ignore();
+    string plaintext;
+    cout << "\nEnter the plaintext: ";
+    getline(cin, plaintext);
+
+    auto ciphertext = encrypt(plaintext, q, g, public_key);
+    cout << "\nCiphertext: ";
+    for (auto &pair : ciphertext) {
+        cout << "(" << pair.first << ", " << pair.second << ") ";
+    }
+
+    string decrypted = decrypt(ciphertext, q, private_key);
+    cout << "\nDecrypted Plaintext: " << decrypted << endl;
+    return 0;
+}

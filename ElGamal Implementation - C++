@@ -86,3 +86,15 @@ vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) 
     }
     return ciphertext;
 }
+
+// Decrypt
+string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key) {
+    string plaintext;
+    int h = power(ciphertext[0].first, private_key, q);
+    int inv_h = modinv(h, q);
+    for (auto &pair : ciphertext) {
+        int ch = (pair.second * inv_h) % q;
+        plaintext += static_cast<char>(ch);
+    }
+    return plaintext;
+}

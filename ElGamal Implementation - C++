@@ -12,10 +12,13 @@
 using namespace std;    // To avoid writing std:: repeatedly (e.g., std::cout -> cout)
 
 
-// Greatest Common Divisor
+// Greatest Common Divisor (GCD) using the Euclidean Algorithm
+// Recursively computes the GCD of two integers a and b.
+// If b is 0, a is the GCD. Otherwise, recursively call gcd(b, a % b).
 int gcd(int a, int b) {
     return b == 0 ? a : gcd(b, a % b);
 }
+
 
 // Modular Exponentiation (Square-and-Multiply)
 int power(int a, int b, int c) {

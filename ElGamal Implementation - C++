@@ -1,13 +1,16 @@
 // Tahim Bhuiya
-// ElGamal Implementation in C++ 
-#include <iostream>
-#include <vector>
-#include <cmath>
-#include <ctime>
-#include <cstdlib>
-#include <string>
-#include <tuple>
-using namespace std;
+// ElGamal Implementation in C++
+
+#include <iostream>     // For input/output stream
+#include <vector>       // For using dynamic arrays
+#include <cmath>        // For mathematical functions like pow(), sqrt()
+#include <ctime>        // For seeding random number generator with time
+#include <cstdlib>      // For rand(), srand()
+#include <string>       // For string handling
+#include <tuple>        // For returning multiple values from a function using std::tuple
+
+using namespace std;    // To avoid writing std:: repeatedly (e.g., std::cout -> cout)
+
 
 // Greatest Common Divisor
 int gcd(int a, int b) {
@@ -113,6 +116,7 @@ int main() {
     cout << "\nPrime Number (q): " << q;
     cout << "\nPublic Key: " << public_key;
     cout << "\nPrivate Key: " << private_key;
+
     cin.ignore();
     string plaintext;
     cout << "\nEnter the plaintext: ";

@@ -73,3 +73,16 @@ int modinv(int a, int m) {
     }
     return x1 < 0 ? x1 + m0 : x1;
 }
+
+// Encrypt
+vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) {
+    int k = 2 + rand() % (q - 2);
+    int s = power(public_key, k, q);
+    vector<pair<int, int>> ciphertext;
+    for (char ch : msg) {
+        int p1 = power(g, k, q);
+        int p2 = ((int)ch * s) % q;
+        ciphertext.emplace_back(p1, p2);
+    }
+    return ciphertext;
+}

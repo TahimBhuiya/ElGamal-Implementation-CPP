@@ -98,17 +98,30 @@ tuple<int, int, int, int> generate_keys(int bits) {
 }
 
 
-// Modular Inverse (Extended Euclidean Algorithm)
+// Modular Inverse using the Extended Euclidean Algorithm
+// Finds the modular inverse of a modulo m, i.e., a number x such that (a * x) % m == 1
+// Assumes a and m are coprime (GCD = 1)
 int modinv(int a, int m) {
-    int m0 = m, t, q;
-    int x0 = 0, x1 = 1;
+    int m0 = m;       // Store original modulus value
+    int t, q;         // Temporary variables for calculations
+    int x0 = 0, x1 = 1; // Initialize coefficients for Bézout's identity
+
+    // Apply Extended Euclidean Algorithm
     while (a > 1) {
-        q = a / m;
-        t = m, m = a % m, a = t;
-        t = x0, x0 = x1 - q * x0, x1 = t;
+        q = a / m;         // Quotient
+        t = m;
+        m = a % m;         // Remainder becomes new m
+        a = t;             // Previous m becomes new a
+
+        t = x0;
+        x0 = x1 - q * x0;  // Update x0 and x1 using the quotient
+        x1 = t;
     }
+
+    // Ensure x1 is positive
     return x1 < 0 ? x1 + m0 : x1;
 }
+
 
 // Encrypt
 vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) {

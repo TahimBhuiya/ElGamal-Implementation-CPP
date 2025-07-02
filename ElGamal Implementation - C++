@@ -164,14 +164,18 @@ string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key)
 
 
 int main() {
-    srand(time(0));
+    srand(time(0));  // Seed the random number generator with current time
+
     int bits;
     cout << "Enter the key size in bits (preferably 8, 12, 16): ";
+
+    // Input validation: ensure user enters a positive integer for key size
     while (!(cin >> bits) || bits <= 0) {
         cout << "Please enter a valid positive integer: ";
-        cin.clear();
-        cin.ignore(1000, '\n');
+        cin.clear();              // Clear error flag on cin
+        cin.ignore(1000, '\n');   // Discard invalid input from buffer
     }
+
 
     auto [q, g, private_key, public_key] = generate_keys(bits);
     cout << "\nPrime Number (q): " << q;

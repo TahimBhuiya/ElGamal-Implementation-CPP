@@ -53,15 +53,21 @@ bool is_prime(int p) {
 }
 
 
+// Generate a random prime number of approximately 'bits' bits using Fermat's test
+// The generated number lies in the range [2^(bits-1), 2^bits - 1]
+// It repeatedly generates random numbers in that range until a probable prime is found
 int generate_prime(int bits) {
-    int min_val = 1 << (bits - 1);
-    int max_val = (1 << bits) - 1;
+    int min_val = 1 << (bits - 1);            // Minimum value with 'bits' bits (e.g., 100...0 in binary)
+    int max_val = (1 << bits) - 1;            // Maximum value with 'bits' bits (e.g., 111...1 in binary)
     int p;
+
     do {
-        p = min_val + rand() % (max_val - min_val);
-    } while (!is_prime(p));
+        p = min_val + rand() % (max_val - min_val); // Generate random number in the range [min_val, max_val)
+    } while (!is_prime(p));                          // Repeat until a number passes the primality test
+
     return p;
 }
+
 
 // Generator for a Prime Field
 int find_generator(int p) {

@@ -83,15 +83,20 @@ int find_generator(int p) {
 }
 
 
-// Key Generation
+// Key Generation for ElGamal Cryptosystem
+// Generates a prime q, a generator g, a private key, and the corresponding public key
+// Returns a tuple: (q, g, private_key, public_key)
 tuple<int, int, int, int> generate_keys(int bits) {
-    int q = generate_prime(bits);
-    int g = find_generator(q);
-    int min_key = 1 << (bits / 2);
-    int private_key = min_key + rand() % (q - min_key);
-    int public_key = power(g, private_key, q);
-    return {q, g, private_key, public_key};
+    int q = generate_prime(bits);             // Generate a prime number q of given bit size
+    int g = find_generator(q);                // Find a generator g for the prime field modulo q
+
+    int min_key = 1 << (bits / 2);            // Minimum value for the private key (half the bit size of q)
+    int private_key = min_key + rand() % (q - min_key);  // Random private key in range [min_key, q)
+    int public_key = power(g, private_key, q);           // Compute public key: g^private_key mod q
+
+    return {q, g, private_key, public_key};   // Return all key components as a tuple
 }
+
 
 // Modular Inverse (Extended Euclidean Algorithm)
 int modinv(int a, int m) {

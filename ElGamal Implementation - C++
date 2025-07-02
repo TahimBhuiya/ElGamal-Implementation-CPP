@@ -123,18 +123,23 @@ int modinv(int a, int m) {
 }
 
 
-// Encrypt
+// Encrypt function for ElGamal Cryptosystem
+// Encrypts a string message character-by-character using public parameters (q, g, public_key)
+// Returns a vector of ciphertext pairs (p1, p2) for each character
 vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) {
-    int k = 2 + rand() % (q - 2);
-    int s = power(public_key, k, q);
-    vector<pair<int, int>> ciphertext;
+    int k = 2 + rand() % (q - 2);         // Generate random session key k ∈ [2, q-1]
+    int s = power(public_key, k, q);      // Shared secret: s = public_key^k mod q
+    vector<pair<int, int>> ciphertext;   // Vector to store encrypted character pairs
+
     for (char ch : msg) {
-        int p1 = power(g, k, q);
-        int p2 = ((int)ch * s) % q;
-        ciphertext.emplace_back(p1, p2);
+        int p1 = power(g, k, q);          // p1 = g^k mod q
+        int p2 = ((int)ch * s) % q;       // p2 = m * s mod q, where m is the character ASCII value
+        ciphertext.emplace_back(p1, p2);  // Append encrypted pair to ciphertext
     }
+
     return ciphertext;
 }
+
 
 // Decrypt
 string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key) {

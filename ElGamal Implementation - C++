@@ -141,17 +141,27 @@ vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) 
 }
 
 
-// Decrypt
+// Decrypt function for ElGamal Cryptosystem
+// Decrypts a vector of ciphertext pairs using the private key and modulus q
+// Returns the recovered plaintext string
 string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key) {
     string plaintext;
-    int h = power(ciphertext[0].first, private_key, q);
-    int inv_h = modinv(h, q);
+
+    // Recover the shared secret using the first p1 and the private key
+    int h = power(ciphertext[0].first, private_key, q);  // h = p1^private_key mod q
+
+    // Compute the modular inverse of the shared secret
+    int inv_h = modinv(h, q);  // inv_h = h⁻¹ mod q
+
+    // Decrypt each pair (p1, p2)
     for (auto &pair : ciphertext) {
-        int ch = (pair.second * inv_h) % q;
-        plaintext += static_cast<char>(ch);
+        int ch = (pair.second * inv_h) % q;             // m = p2 * h⁻¹ mod q
+        plaintext += static_cast<char>(ch);             // Convert ASCII value to character
     }
+
     return plaintext;
 }
+
 
 int main() {
     srand(time(0));

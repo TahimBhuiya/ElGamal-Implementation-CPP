@@ -177,10 +177,14 @@ int main() {
     }
 
 
+    // Generate ElGamal key components (q, g, private_key, public_key)
     auto [q, g, private_key, public_key] = generate_keys(bits);
+
+    // Display the generated keys and prime number
     cout << "\nPrime Number (q): " << q;
     cout << "\nPublic Key: " << public_key;
     cout << "\nPrivate Key: " << private_key;
+
 
     cin.ignore();
     string plaintext;

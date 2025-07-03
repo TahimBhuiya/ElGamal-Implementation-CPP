@@ -16,3 +16,22 @@ ElGamal is an asymmetric-key encryption algorithm used for secure data exchange.
 - Decrypting ciphertext using modular inverse and private key  
 
 ---
+
+## ▶️ Usage  
+
+Compile and run the C++ program:  
+```bash
+g++ "ElGamal Implementation - C++.cpp" -o ElGamal && ./ElGamal
+```
+
+Then:  
+- Enter the key size in bits (e.g., 8, 12, 16)  
+- Enter the plaintext message to encrypt  
+
+The program will output:  
+- The generated prime number `q`  
+- Public and private keys  
+- Encrypted ciphertext as pairs of integers `(p1, p2)`  
+- Decrypted plaintext  
+
+---

@@ -52,7 +52,6 @@ bool is_prime(int p) {
     return power(2, p - 1, p) == 1;        // Fermat's test with base 2
 }
 
-
 // Generate a random prime number of approximately 'bits' bits using Fermat's test
 // The generated number lies in the range [2^(bits-1), 2^bits - 1]
 // It repeatedly generates random numbers in that range until a probable prime is found
@@ -68,7 +67,6 @@ int generate_prime(int bits) {
     return p;
 }
 
-
 // Generator for a Prime Field
 // Attempts to find a primitive root (generator) modulo p
 // This simplified check assumes (p-1) has small prime factors like 2 and 3
@@ -81,7 +79,6 @@ int find_generator(int p) {
     }
     return -1;  // No generator found (shouldn’t usually happen for safe primes)
 }
-
 
 // Key Generation for ElGamal Cryptosystem
 // Generates a prime q, a generator g, a private key, and the corresponding public key
@@ -96,7 +93,6 @@ tuple<int, int, int, int> generate_keys(int bits) {
 
     return {q, g, private_key, public_key};   // Return all key components as a tuple
 }
-
 
 // Modular Inverse using the Extended Euclidean Algorithm
 // Finds the modular inverse of a modulo m, i.e., a number x such that (a * x) % m == 1
@@ -122,7 +118,6 @@ int modinv(int a, int m) {
     return x1 < 0 ? x1 + m0 : x1;
 }
 
-
 // Encrypt function for ElGamal Cryptosystem
 // Encrypts a string message character-by-character using public parameters (q, g, public_key)
 // Returns a vector of ciphertext pairs (p1, p2) for each character
@@ -139,7 +134,6 @@ vector<pair<int, int>> encrypt(const string &msg, int q, int g, int public_key) 
 
     return ciphertext;
 }
-
 
 // Decrypt function for ElGamal Cryptosystem
 // Decrypts a vector of ciphertext pairs using the private key and modulus q
@@ -162,7 +156,6 @@ string decrypt(const vector<pair<int, int>> &ciphertext, int q, int private_key)
     return plaintext;
 }
 
-
 int main() {
     srand(time(0));  // Seed the random number generator with current time
 
@@ -175,8 +168,6 @@ int main() {
         cin.clear();              // Clear error flag on cin
         cin.ignore(1000, '\n');   // Discard invalid input from buffer
     }
-
-
     // Generate ElGamal key components (q, g, private_key, public_key)
     auto [q, g, private_key, public_key] = generate_keys(bits);
 
@@ -185,13 +176,11 @@ int main() {
     cout << "\nPublic Key: " << public_key;
     cout << "\nPrivate Key: " << private_key;
 
-
     cin.ignore();  // Clear any leftover newline character from previous input
 
     string plaintext;
     cout << "\nEnter the plaintext: ";
     getline(cin, plaintext);  // Read full line of text including spaces as the message to encrypt
-
 
     // Encrypt the plaintext message using ElGamal encryption
     auto ciphertext = encrypt(plaintext, q, g, public_key);
@@ -202,7 +191,6 @@ int main() {
         cout << "(" << pair.first << ", " << pair.second << ") ";
     }
 
-
     // Decrypt the ciphertext using the private key
     string decrypted = decrypt(ciphertext, q, private_key);
 
@@ -210,5 +198,4 @@ int main() {
     cout << "\nDecrypted Plaintext: " << decrypted << endl;
 
     return 0; // Indicate successful program termination
-
 }

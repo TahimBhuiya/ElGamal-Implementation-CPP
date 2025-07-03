@@ -203,7 +203,12 @@ int main() {
     }
 
 
+    // Decrypt the ciphertext using the private key
     string decrypted = decrypt(ciphertext, q, private_key);
+
+    // Display the recovered plaintext
     cout << "\nDecrypted Plaintext: " << decrypted << endl;
-    return 0;
+
+    return 0; // Indicate successful program termination
+
 }

@@ -193,11 +193,15 @@ int main() {
     getline(cin, plaintext);  // Read full line of text including spaces as the message to encrypt
 
 
+    // Encrypt the plaintext message using ElGamal encryption
     auto ciphertext = encrypt(plaintext, q, g, public_key);
+
+    // Display the ciphertext as pairs (p1, p2) for each character
     cout << "\nCiphertext: ";
     for (auto &pair : ciphertext) {
         cout << "(" << pair.first << ", " << pair.second << ") ";
     }
+
 
     string decrypted = decrypt(ciphertext, q, private_key);
     cout << "\nDecrypted Plaintext: " << decrypted << endl;

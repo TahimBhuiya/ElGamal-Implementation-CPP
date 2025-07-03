@@ -186,10 +186,12 @@ int main() {
     cout << "\nPrivate Key: " << private_key;
 
 
-    cin.ignore();
+    cin.ignore();  // Clear any leftover newline character from previous input
+
     string plaintext;
     cout << "\nEnter the plaintext: ";
-    getline(cin, plaintext);
+    getline(cin, plaintext);  // Read full line of text including spaces as the message to encrypt
+
 
     auto ciphertext = encrypt(plaintext, q, g, public_key);
     cout << "\nCiphertext: ";

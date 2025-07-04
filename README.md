@@ -62,3 +62,16 @@ The program will output:
 | Shared Secret   | Calculated as `(public_key)^k mod q`, used to mask plaintext characters         |
 
 ---
+## 🧪 Example Output  
+```
+Enter the key size in bits (preferably 8, 12, 16): 12
+
+Prime Number (q): 4093
+Public Key: 2225
+Private Key: 1346
+
+Enter the plaintext: hello
+
+Ciphertext: (3078, 1251) (3078, 2423) (3078, 3222) (3078, 1251) (3078, 1439) 
+
+Decrypted Plaintext: hello

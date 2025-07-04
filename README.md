@@ -35,3 +35,16 @@ The program will output:
 - Decrypted plaintext  
 
 ---
+## 🧠 Code Description  
+
+| Function                      | Purpose                                                                   |
+|-------------------------------|---------------------------------------------------------------------------|
+| `gcd(a, b)`                   | Computes greatest common divisor using Euclidean algorithm                |
+| `power(a, b, c)`              | Efficient modular exponentiation (square-and-multiply)                    |
+| `is_prime(p)`                 | Fermat primality test to check if `p` is probably prime                  |
+| `generate_prime(bits)`        | Generates a random prime number with approximately `bits` bits           |
+| `find_generator(p)`           | Finds a primitive root (generator) modulo prime `p`                      |
+| `generate_keys(bits)`         | Generates `(q, g, private_key, public_key)` for ElGamal                   |
+| `modinv(a, m)`                | Computes modular inverse of `a` modulo `m` using extended Euclidean algorithm |
+| `encrypt(msg, q, g, public_key)` | Encrypts a plaintext string into a vector of ciphertext pairs           |
+| `decrypt(ciphertext, q, private_key)` | Decrypts ciphertext pairs into the original plaintext string        |

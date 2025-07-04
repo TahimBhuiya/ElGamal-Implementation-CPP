@@ -75,3 +75,10 @@ Enter the plaintext: hello
 Ciphertext: (3078, 1251) (3078, 2423) (3078, 3222) (3078, 1251) (3078, 1439) 
 
 Decrypted Plaintext: hello
+---
+
+## 📦 Requirements  
+- C++ compiler (g++, clang++)  
+- Standard C++ libraries (iostream, vector, etc.)  
+
+---

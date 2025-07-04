@@ -82,3 +82,11 @@ Decrypted Plaintext: hello
 - Standard C++ libraries (iostream, vector, etc.)  
 
 ---
+## ✅ Notes  
+- The plaintext is handled character by character, encrypting ASCII values.  
+- Prime generation uses a basic Fermat primality test; stronger tests could be implemented for more security.  
+- The key size should be small (e.g., 8 to 16 bits) for reasonable runtime and demonstration purposes.  
+- The ciphertext is a vector of integer pairs representing encrypted characters.  
+- Randomness depends on seeding with `time(0)`.  
+
+---

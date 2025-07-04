@@ -62,7 +62,9 @@ The program will output:
 | Shared Secret   | Calculated as `(public_key)^k mod q`, used to mask plaintext characters         |
 
 ---
+
 ## 🧪 Example Output  
+
 ```
 Enter the key size in bits (preferably 8, 12, 16): 12
 
@@ -75,13 +77,17 @@ Enter the plaintext: hello
 Ciphertext: (3078, 1251) (3078, 2423) (3078, 3222) (3078, 1251) (3078, 1439) 
 
 Decrypted Plaintext: hello
+
+
 ---
 
-## 📦 Requirements  
+##  📦 Requirements  
+
 - C++ compiler (g++, clang++)  
 - Standard C++ libraries (iostream, vector, etc.)  
 
 ---
+
 ## ✅ Notes  
 - The plaintext is handled character by character, encrypting ASCII values.  
 - Prime generation uses a basic Fermat primality test; stronger tests could be implemented for more security.  
@@ -94,3 +100,4 @@ Decrypted Plaintext: hello
 Developed by **Tahim Bhuiya**
 
 🎉 Enjoy cryptography with C++!
+---

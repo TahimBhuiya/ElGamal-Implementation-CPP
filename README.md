@@ -48,3 +48,17 @@ The program will output:
 | `modinv(a, m)`                | Computes modular inverse of `a` modulo `m` using extended Euclidean algorithm |
 | `encrypt(msg, q, g, public_key)` | Encrypts a plaintext string into a vector of ciphertext pairs           |
 | `decrypt(ciphertext, q, private_key)` | Decrypts ciphertext pairs into the original plaintext string        |
+---
+
+## 🔐 Key Concepts  
+
+| Concept         | Description                                                                      |
+|-----------------|----------------------------------------------------------------------------------|
+| Prime `q`       | Large prime number used as the modulus                                          |
+| Generator `g`   | Primitive root modulo `q`                                                       |
+| Private Key     | Randomly chosen secret integer                                                  |
+| Public Key      | Computed as `g^private_key mod q`                                               |
+| Session Key `k` | Random key generated per encryption session                                    |
+| Shared Secret   | Calculated as `(public_key)^k mod q`, used to mask plaintext characters         |
+
+---

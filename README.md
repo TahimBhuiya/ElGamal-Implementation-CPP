@@ -35,6 +35,7 @@ The program will output:
 - Decrypted plaintext  
 
 ---
+
 ## 🧠 Code Description  
 
 | Function                      | Purpose                                                                   |
@@ -48,6 +49,7 @@ The program will output:
 | `modinv(a, m)`                | Computes modular inverse of `a` modulo `m` using extended Euclidean algorithm |
 | `encrypt(msg, q, g, public_key)` | Encrypts a plaintext string into a vector of ciphertext pairs           |
 | `decrypt(ciphertext, q, private_key)` | Decrypts ciphertext pairs into the original plaintext string        |
+
 ---
 
 ## 🔐 Key Concepts  
@@ -64,7 +66,6 @@ The program will output:
 ---
 
 ## 🧪 Example Output  
-
 ```
 Enter the key size in bits (preferably 8, 12, 16): 12
 
@@ -77,12 +78,11 @@ Enter the plaintext: hello
 Ciphertext: (3078, 1251) (3078, 2423) (3078, 3222) (3078, 1251) (3078, 1439) 
 
 Decrypted Plaintext: hello
-
+```
 
 ---
 
-##  📦 Requirements  
-
+## 📦 Requirements  
 - C++ compiler (g++, clang++)  
 - Standard C++ libraries (iostream, vector, etc.)  
 
@@ -96,8 +96,8 @@ Decrypted Plaintext: hello
 - Randomness depends on seeding with `time(0)`.  
 
 ---
+
 ## 📣 Credits  
 Developed by **Tahim Bhuiya**
 
 🎉 Enjoy cryptography with C++!
----
